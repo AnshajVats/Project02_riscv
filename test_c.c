@@ -10,3 +10,18 @@ char *test_c_return (int args, char ** argv){
 	}
 	return test;
 }
+
+int test_c_max_return (int args, char ** argv) {
+	int max = 0;
+
+	for(int i = 0; i < args; i++) {
+		int x = atoi(argv[i]);
+
+		if(x > max) {
+			max = x;
+		}
+	}
+
+	return max;
+}
+
