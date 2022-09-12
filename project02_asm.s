@@ -22,4 +22,4 @@ loop:
 
 
 done:
-	ret
+	jalr zero, 0(ra)
