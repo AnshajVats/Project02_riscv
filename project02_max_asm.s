@@ -2,47 +2,22 @@
 
 
 max_return:
+	li t0, 0 		#index to more the pointer
+	li t1, 0		#max number
+loop:
+	beq t0, a1, done
+	lw t2, (a0)			# loads the number from the t2 = *a0
+	blt t1, t2, continue
+	addi a0, a0, 4		# walk arr next 4 bytes elem 
+	addi t0, t0, 1 		# incereses the t0++
+	j loop 
 
-	BLT a0, a1, done
-	BLT a0, a2, work
-	ret
-
-work:
-	mv a0, a2
-	ret
-
-
-done:
-	BLT a1, a2, last
-	mv a0, a1
-	ret
-
-last:
-	mv a0, a2
-	ret
-	
-
-/*
-loop: 
-	lw t3, a1
-	BLT a0, t0, done			# a0 < t0
-	BLT t3, t1, else	
-	mv t1, t3
-	addi a1, a1, 4
-	addi t0, t0, 1
+continue:
+	mv t1, t2
 	j loop
-
-
-else:
-	addi a1, a1, 4
-	addi t0, t0, 1
-	j loop
-	
-
-
 
 done:
 	mv a0, t1
 	ret
-*/
-
+	
+	

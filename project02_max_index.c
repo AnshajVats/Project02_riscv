@@ -2,14 +2,22 @@
 #include <stdlib.h>
 
 
+void int_default (int * array, int args, char ** argv) {
+	int k = 0;
+	for(int  i = 1; i < args; i++) {
+		array[k] = atoi(argv[i]);
+		k++;
+	}
+}
 
 int test_c_max_index_return(int args, char ** argv);
-int max_index_return(int one,int two, int three);
+int max_index_return(int *arr, int len);
 int main (int args, char ** argv) {
-
+	int array[64];
+	
 	int c_return = test_c_max_index_return(args, argv);
-
-	int asm_return = max_index_return(atoi(argv[1]), atoi (argv[2]), atoi (argv[3]));
+	int_default(array, args, argv);
+	int asm_return = max_index_return(array, args - 1);
 
 	printf("c: %d\nasm: %d\n", c_return, asm_return);
 	

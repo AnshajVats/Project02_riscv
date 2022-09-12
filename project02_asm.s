@@ -11,7 +11,7 @@ upper_case_return:
 
 
 loop:
-	lb t1, (a0)	# t1 = *a0
+	lb t1, (a0)			# t1 = *a0
 
 	beq t1, zero, done 
 	sub t2, t1, t0		# convertind 'f' to 'F'	
@@ -22,4 +22,4 @@ loop:
 
 
 done:
-	jalr zero, 0(ra)
+	ret

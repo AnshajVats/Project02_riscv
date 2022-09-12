@@ -1,30 +1,33 @@
 .global max_index_return
 /*
-	a0 = number
-	a1 = number
-	a2 = number
+	a0 = array of numbers
+	a1 = len
 */
 
 
 max_index_return:
+	li t0, 0			#loopindex variable
+	li t2, 0			# stores max index
+	li t3, 0			# stores max number
 
-	BLT a0, a1, done		# a0 < a1
-	BLT a0, a2, work		# a0 < a2 
-	li a0, 0				# a0 = 0
-	ret
+loop:
+	beq t0, a1, done
+	lw t1, (a0)				# t1 = *a0
+	blt t3, t1, continue 	# t3 < t1
+	addi t0, t0, 1
+	addi a0, a0,4
+	j loop
+	
+	
+	
 
-work:
-	li a0, 2				# a0 = 2
-	ret
-
+continue:
+	mv t3, t1
+	mv t2, t0
+	j loop
 
 done:
-	BLT a1, a2, last		# a1 < a2
-	li a0, 1				# a0 = 1
-	ret
-
-last:
-	li a0, 2				# a0 = 2
+	mv a0, t2
 	ret
 	
 
