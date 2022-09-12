@@ -1,14 +1,17 @@
 #include <string.h>
 #include <stdlib.h>
 
-char *test_c_return (int args, char ** argv, char * test){
+void test_c_return (char *argv){
 	int i = 0;
-	test = argv[1];
-	while (test[i] != '\0') {
-		test[i] -= 32;
-		i++;
+	
+	while (argv[i] != '\0') {
+		if (argv[i] < 97  || argv[i] > 122) {
+			i++;
+			continue;
+		}
+			argv[i] -= 32;
+			i++;
 	}
-	return test;
 }
 
 int test_c_max_return (int args, char ** argv) {

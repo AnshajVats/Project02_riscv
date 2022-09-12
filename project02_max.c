@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void int_default (int * array, int args, char ** argv) {
 	int k = 0;
 	for(int  i = 1; i < args; i++) {

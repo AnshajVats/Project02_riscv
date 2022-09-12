@@ -5,7 +5,7 @@ OBJS_max = project02_max.o test_c.o project02_max_asm.o
 
 OBJS_max_index = project02_max_index.o test_c.o project02_max_index_asm.o
 
-OBJS_sort = project02_sort.o test_c.o project02_sort_asm.o
+OBJS_sort = project02_sort.o test_c.o project02_sort_asm.o project02_max_index_asm.o
 
 %.o: %.c
 
