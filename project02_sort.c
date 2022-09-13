@@ -11,14 +11,14 @@ void int_default (int * array, int args, char ** argv) {
 }
 
 void print_c (int args, int * argv) {
-	printf("c:");
+	printf("c: ");
 	for(int  i = 0; i < args - 1; i++) 
 		printf("%d ", argv[i]);
 	printf("\n");
 }
 
 void print_asm (int args, int * argv) {
-	printf("asm:");
+	printf("asm: ");
 	for(int  i = 0; i < args - 1; i++) 
 		printf("%d ", argv[i]);
 	printf("\n");

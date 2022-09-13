@@ -50,7 +50,7 @@ void sort_c(int * array, int args) {
 
 	for (int i = 0; i < args - 1; i++) {
 		for(int  j = 0; j < args - 1; j++) {
-			if(array[i] < array[j]) {
+			if(array[i] > array[j]) {
 				temp = array[i];
 				array[i] = array[j];
 				array[j] = temp;	
