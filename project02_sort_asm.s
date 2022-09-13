@@ -16,7 +16,6 @@ sort_array:
 	sd ra, 0(sp)		#preserve ra
 
 	li t0, 0			#index for the loop
-	mv t1, a0
 	li t2, 0			# stores max index
 	li s2, 4			# help move index
 	li t4, 0			# index of the largest number from start of the array
@@ -43,6 +42,7 @@ loop:
 	mul t4, s2, t2
 
 	ADD a0, t4, a0
+	li t3, 0
 
 	lw t5, (a0)
 	

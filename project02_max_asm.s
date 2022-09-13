@@ -1,5 +1,7 @@
 .global max_return
 
+/* finds the max between three numbers*/
+
 
 max_return:
 	li t0, 0 		#index to more the pointer
