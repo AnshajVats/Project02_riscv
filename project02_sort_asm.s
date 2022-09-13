@@ -18,12 +18,13 @@ sort_array:
 	li t0, 0			#index for the loop
 	li t2, 0			# stores max index
 	li s2, 4			# help move index
+	mv s6, a0
 	li t4, 0			# index of the largest number from start of the array
 	li t5, 0			# largest number in array 
 	li t6, 0			# hold arr[0]
 
 loop:
-	beq t0, a1, done
+	bge t0, a1, done
 	sd a0, 8(sp)		#preserve a0	
 	sd a1, 16(sp)		#preserve a1
 	sd t0, 24(sp)		#preserve t0
@@ -41,14 +42,10 @@ loop:
 	
 	mul t4, s2, t2
 
-	ADD a0, t4, a0
-	li t3, 0
+	ADD s5, t4, a0
 
-	lw t5, (a0)
-	
-	sd a0, 32(sp)		# put the addresh on stack
-	
-	ld a0, 8(sp)		#restore a0
+
+	lw t5, (s5)
 
 	lw t6, (a0)
 	
@@ -59,12 +56,10 @@ loop:
 
 swap:
 	sw t5, (a0)
-	ld a0, 32(sp)		#restore a0[32]
-	sw t6, (a0)
-	ld a0, 8(sp)		#restore a0
+	sw t6, (s5)
 	addi a0, a0,4
 	addi t0, t0, 1
-	
+	addi a1, a1, -1	
 	j loop
 
 
